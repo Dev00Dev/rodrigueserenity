@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigue Care</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .background {
+            background-image: url('https://i.goopics.net/oyik4t.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .navbar-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-links a {
+            color: #333;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .navbar-links a:hover {
+            color: #0078d7;
+        }
+        .navbar-clock {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .welcome-message {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            font-weight: normal;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .container {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .tile {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tile img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .tile h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .tile p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="navbar">
+            <div class="navbar-logo">
+                <img src="https://i.goopics.net/kwn22m.png" alt="Logo">
+                <span class="navbar-title">Serenity</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#contact"></a>
+            </div>
+            <div class="navbar-clock" id="clock"></div>
+        </div>
+
+        <div class="welcome-message">
+            Hello, let’s take a break together.
+        </div>
+
+        <main class="container">
+            <div class="tile" onclick="window.location.href='https://rodrigue-app.ct.ws/serenity/app/breathe.html'">
+                <img src="https://i.goopics.net/m9gjuq.png" alt="Service 1">
+                <h3>Breathe</h3>
+                <p>Relax with a quick breathing exercise</p>
+            </div>
+
+            <div class="tile" onclick="window.location.href='https://rodrigue-app.ct.ws/serenity/app/dayhealth.html'">
+                <img src="https://i.goopics.net/kao9tf.png" alt="Service 2">
+                <h3>DayHealth</h3>
+                <p>Write down your day and get a motivational quote</p>
+            </div>
+
+            <div class="tile" onclick="window.location.href='https://rodrigue-app.ct.ws/serenity/app/relaxspace.html'">
+                <img src="https://i.goopics.net/14m9xf.png" alt="Service 3">
+                <h3>RelaxSpace</h3>
+                <p>Relax while listening to a radio station composed of Lofi and relaxing music</p>
+            </div>
+
+            <div class="tile" onclick="window.location.href='CC'">
+                <img src="CCLOGO" alt="Service 4">
+                <h3>DayHealth</h3>
+                <p>Write down your day and get a motivational quote</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            clock.textContent = `${hours}:${minutes}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
