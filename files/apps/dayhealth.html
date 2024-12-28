@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serinity - DayHealth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .quote {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #555;
+        }
+        .author {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #888;
+        }
+        .emoji-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        button {
+            font-size: 2.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.3);
+        }
+        .finish-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .finish-btn:hover {
+            background-color: #5a9bd6;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Serinity</div>
+    <button class="finish-btn" onclick="finishPage()">Finish!</button>
+    <h1>How was your day?</h1>
+    <div class="emoji-buttons">
+        <button onclick="showQuote('happy')">😊</button>
+        <button onclick="showQuote('neutral')">😐</button>
+        <button onclick="showQuote('sad')">😢</button>
+        <button onclick="showQuote('excited')">🤩</button>
+    </div>
+    <div id="quote" class="quote"></div>
+    <div id="author" class="author"></div>
+
+    <script>
+        const quotes = {
+            happy: [
+                { text: "Happiness depends upon ourselves.", author: "Aristotle" },
+                { text: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
+                { text: "Happiness is not by chance, but by choice.", author: "Jim Rohn" },
+                { text: "Success is getting what you want. Happiness is wanting what you get.", author: "Dale Carnegie" }
+            ],
+            neutral: [
+                { text: "Life is really simple, but we insist on making it complicated.", author: "Confucius" },
+                { text: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt" },
+                { text: "Life is 10% what happens to us and 90% how we react to it.", author: "Charles R. Swindoll" },
+                { text: "The most important thing is to enjoy your life – to be happy. It’s all that matters.", author: "Audrey Hepburn" }
+            ],
+            sad: [
+                { text: "Every day may not be good, but there is something good in every day.", author: "Alice Morse Earle" },
+                { text: "Tough times never last, but tough people do.", author: "Robert H. Schuller" },
+                { text: "Even the darkest night will end and the sun will rise.", author: "Victor Hugo" },
+                { text: "Stars can’t shine without darkness.", author: "Unknown" },
+                { text: "It’s okay to be sad. Tears water our growth.", author: "Unknown" }
+            ],
+            excited: [
+                { text: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+                { text: "Success is not the key to happiness. Happiness is the key to success.", author: "Albert Schweitzer" },
+                { text: "Do what makes your soul shine.", author: "Unknown" }
+            ]
+        };
+
+        function showQuote(mood) {
+            const quoteContainer = quotes[mood];
+            const randomQuote = quoteContainer[Math.floor(Math.random() * quoteContainer.length)];
+            document.getElementById('quote').textContent = `"${randomQuote.text}"`;
+            document.getElementById('author').textContent = `- ${randomQuote.author}`;
+        }
+
+        function finishPage() {
+            window.location.href = "https://example.com"; 
+        }
+    </script>
+</body>
+</html>
